@@ -15,130 +15,205 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
 
 <style>
+    /* ==== Основная стилистика ==== */
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #f0f4f8;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7ff;
         color: #333;
         scroll-behavior: smooth;
     }
+    a { text-decoration: none; }
+
+    /* ==== Hero ==== */
     .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        padding: 80px 20px;
-        background: linear-gradient(135deg, #007bff, #00c6ff);
-        color: white;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+        position: relative;
+        overflow: hidden;
     }
-    .hero h4 {
-        font-size: 3rem;
-        font-weight: 700;
+    .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
         margin-bottom: 15px;
+        line-height: 1.2;
     }
     .hero p.lead {
-        font-size: 1.5rem;
-        margin-bottom: 25px;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        font-weight: 500;
     }
-    .hero .btn {
-        transition: all 0.3s ease;
+    .hero .btn-gradient {
+        background: linear-gradient(45deg, #ff6a00, #ee0979);
+        color: #fff;
+        font-weight: 600;
+        padding: 15px 30px;
+        border-radius: 50px;
+        transition: all 0.4s ease;
     }
-    .hero .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    .hero .btn-gradient:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* ==== Блоки ==== */
+    section {
+        padding: 80px 20px;
+        position: relative;
     }
     .section-title {
-        margin: 60px 0 30px;
-        text-align: center;
+        font-size: 2.5rem;
         font-weight: 700;
-        color: #007bff;
+        text-align: center;
+        margin-bottom: 50px;
+        color: #2575fc;
     }
+
+    /* ==== Списки преимуществ ==== */
     ul.list-group li {
-        font-size: 1.1rem;
-        padding: 15px 20px;
-        border-radius: 10px;
-        margin-bottom: 10px;
+        font-size: 1.2rem;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        background: linear-gradient(90deg, #fff, #f0f4ff);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     ul.list-group li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-7px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
     }
+    ul.list-group li i {
+        color: #ff6a00;
+    }
+
+    /* ==== Шаги работы ==== */
     .steps .card {
-        border: none;
         background: white;
-        border-radius: 15px;
-        padding: 20px;
+        border-radius: 20px;
+        padding: 40px 20px;
         margin: 20px 0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .steps .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
+    .steps .card i {
+        font-size: 3rem;
+        color: #2575fc;
+        margin-bottom: 20px;
+    }
+
+    /* ==== Контакты ==== */
     blockquote {
-        border-left: 5px solid #007bff;
-        background-color: #e9f5ff;
-        padding: 25px;
-        margin: 40px auto;
-        border-radius: 10px;
+        background: linear-gradient(120deg, #6a11cb, #2575fc);
+        color: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        font-size: 1.2rem;
+        text-align: center;
         max-width: 700px;
+        margin: 50px auto;
     }
     .contact a {
-        text-decoration: none;
-        color: #007bff;
-        font-weight: 600;
-        transition: color 0.3s ease;
+        display: inline-block;
+        margin-top: 20px;
+        font-weight: 700;
+        color: #ff6a00;
+        transition: transform 0.3s ease;
     }
     .contact a:hover {
-        color: #0056b3;
+        transform: scale(1.1);
+        color: #ee0979;
     }
+
+    /* ==== Анимации и мелкие эффекты ==== */
+    .fade-in {
+        opacity: 0;
+        animation: fadeInUp 1s forwards;
+    }
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px);}
+        100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* ==== Фоны и декоративные элементы ==== */
+    .hero::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%);
+        background-size: 50px 50px;
+        top: -50%;
+        left: -50%;
+        animation: rotateBG 30s linear infinite;
+        z-index: 0;
+    }
+    @keyframes rotateBG {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(360deg);}
+    }
+    .hero * { position: relative; z-index: 1; }
+
 </style>
 </head>
 <body>
 
 <!-- Hero Section -->
 <header class="hero" data-aos="fade-down">
-    <h4>Overdo</h4>
-    <p class="lead">Do less, get more</p>
+    <h1>Overdo</h1>
+    <p class="lead">Do less, get more — ваш персональний онлайн-асистент</p>
     <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
-        <a href="#about" class="btn btn-light btn-lg">Розпочати співпрацю</a>
+        <a href="#about" class="btn btn-gradient btn-lg">Розпочати співпрацю</a>
         <a href="#about" class="btn btn-outline-light btn-lg">Про проект</a>
     </div>
 </header>
 
 <!-- About Section -->
-<section id="about" class="container" data-aos="fade-up">
-    <h2 class="section-title">Overdo &mdash; ваш персональний онлайн-асистент</h2>
-    <p class="text-center mb-4">Ми беремо ваші завдання на себе та виконуємо їх максимально якісно:</p>
+<section id="about" data-aos="fade-up">
+    <h2 class="section-title">Що ми робимо</h2>
+    <p class="text-center mb-5">Ми беремо ваші завдання на себе та виконуємо їх максимально якісно:</p>
     <ul class="list-group list-group-flush mx-auto" style="max-width: 700px;">
-        <li class="list-group-item"><i class="fa-solid fa-clipboard-list me-2"></i>Організація та ведення справ</li>
-        <li class="list-group-item"><i class="fa-solid fa-envelope me-2"></i>Відповіді на повідомлення та комунікація з клієнтами</li>
-        <li class="list-group-item"><i class="fa-solid fa-calendar-check me-2"></i>Планування задач та контроль термінів</li>
+        <li><i class="fa-solid fa-clipboard-list me-2"></i>Організація та ведення справ</li>
+        <li><i class="fa-solid fa-envelope me-2"></i>Відповіді на повідомлення та комунікація з клієнтами</li>
+        <li><i class="fa-solid fa-calendar-check me-2"></i>Планування задач та контроль термінів</li>
     </ul>
 </section>
 
 <!-- How It Works Section -->
 <section class="container steps" data-aos="fade-up">
-    <h3 class="section-title">Як це працює</h3>
+    <h2 class="section-title">Як це працює</h2>
     <div class="row justify-content-center text-center">
         <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card p-3">
-                <i class="fa-solid fa-comments fa-3x mb-3 text-primary"></i>
+            <div class="card">
+                <i class="fa-solid fa-comments"></i>
                 <p>Зв’язіться з нами</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="card p-3">
-                <i class="fa-solid fa-gear fa-3x mb-3 text-primary"></i>
+            <div class="card">
+                <i class="fa-solid fa-gear"></i>
                 <p>Налаштування та запуск</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="card p-3">
-                <i class="fa-solid fa-tasks fa-3x mb-3 text-primary"></i>
+            <div class="card">
+                <i class="fa-solid fa-tasks"></i>
                 <p>Виконання завдань</p>
             </div>
         </div>
         <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="card p-3">
-                <i class="fa-solid fa-chart-line fa-3x mb-3 text-primary"></i>
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
                 <p>Звіти та оптимізація</p>
             </div>
         </div>
@@ -146,18 +221,18 @@
 </section>
 
 <!-- Advantages Section -->
-<section class="container" data-aos="fade-up">
+<section data-aos="fade-up">
     <h2 class="section-title">Наші переваги</h2>
     <ul class="list-group list-group-flush mx-auto" style="max-width: 700px;">
-        <li class="list-group-item"><i class="fa-solid fa-clock me-2 text-primary"></i><strong>Економія часу</strong> — ви концентруєтеся на важливому</li>
-        <li class="list-group-item"><i class="fa-solid fa-rocket me-2 text-primary"></i><strong>Більше результату</strong> — ми доводимо завдання до кінця</li>
-        <li class="list-group-item"><i class="fa-solid fa-hands-helping me-2 text-primary"></i><strong>Повна турбота</strong> — контроль кожного кроку</li>
-        <li class="list-group-item"><i class="fa-solid fa-credit-card me-2 text-primary"></i><strong>Прозора система оплати</strong> — фікс, % або абонентська плата</li>
+        <li><i class="fa-solid fa-clock me-2"></i><strong>Економія часу</strong> — ви концентруєтеся на важливому</li>
+        <li><i class="fa-solid fa-rocket me-2"></i><strong>Більше результату</strong> — ми доводимо завдання до кінця</li>
+        <li><i class="fa-solid fa-hands-helping me-2"></i><strong>Повна турбота</strong> — контроль кожного кроку</li>
+        <li><i class="fa-solid fa-credit-card me-2"></i><strong>Прозора система оплати</strong> — фікс, % або абонентська плата</li>
     </ul>
 </section>
 
 <!-- Contact Section -->
-<section class="container contact text-center" data-aos="fade-up">
+<section class="contact text-center" data-aos="fade-up">
     <blockquote>
         Залиште повідомлення, і ми зв’яжемося з вами протягом короткого часу.<br>
         Ви можете одразу описати ваше завдання або питання.
@@ -165,16 +240,11 @@
     <p><a href="https://t.me/yourtelegram" target="_blank"><i class="fa-brands fa-telegram me-2"></i>Telegram</a></p>
 </section>
 
-<!-- Bootstrap JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- AOS JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-  AOS.init({
-    duration: 1000,
-    once: true
-  });
+  AOS.init({ duration: 1200, once: true });
 </script>
 
 </body>
