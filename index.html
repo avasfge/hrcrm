@@ -1,251 +1,146 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Overdo - Ваш персональний онлайн-асистент</title>
-
-<!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- AOS CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-
-<style>
-    /* ==== Основная стилистика ==== */
-    body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f7ff;
-        color: #333;
-        scroll-behavior: smooth;
-    }
-    a { text-decoration: none; }
-
-    /* ==== Hero ==== */
-    .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        color: #fff;
-        position: relative;
-        overflow: hidden;
-    }
-    .hero h1 {
-        font-size: 4rem;
-        font-weight: 800;
-        margin-bottom: 15px;
-        line-height: 1.2;
-    }
-    .hero p.lead {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-        font-weight: 500;
-    }
-    .hero .btn-gradient {
-        background: linear-gradient(45deg, #ff6a00, #ee0979);
-        color: #fff;
-        font-weight: 600;
-        padding: 15px 30px;
-        border-radius: 50px;
-        transition: all 0.4s ease;
-    }
-    .hero .btn-gradient:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    /* ==== Блоки ==== */
-    section {
-        padding: 80px 20px;
-        position: relative;
-    }
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 50px;
-        color: #2575fc;
-    }
-
-    /* ==== Списки преимуществ ==== */
-    ul.list-group li {
-        font-size: 1.2rem;
-        padding: 20px;
-        margin-bottom: 15px;
-        border-radius: 15px;
-        background: linear-gradient(90deg, #fff, #f0f4ff);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    ul.list-group li:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-    }
-    ul.list-group li i {
-        color: #ff6a00;
-    }
-
-    /* ==== Шаги работы ==== */
-    .steps .card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px 20px;
-        margin: 20px 0;
-        text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .steps .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    .steps .card i {
-        font-size: 3rem;
-        color: #2575fc;
-        margin-bottom: 20px;
-    }
-
-    /* ==== Контакты ==== */
-    blockquote {
-        background: linear-gradient(120deg, #6a11cb, #2575fc);
-        color: #fff;
-        padding: 30px;
-        border-radius: 20px;
-        font-size: 1.2rem;
-        text-align: center;
-        max-width: 700px;
-        margin: 50px auto;
-    }
-    .contact a {
-        display: inline-block;
-        margin-top: 20px;
-        font-weight: 700;
-        color: #ff6a00;
-        transition: transform 0.3s ease;
-    }
-    .contact a:hover {
-        transform: scale(1.1);
-        color: #ee0979;
-    }
-
-    /* ==== Анимации и мелкие эффекты ==== */
-    .fade-in {
-        opacity: 0;
-        animation: fadeInUp 1s forwards;
-    }
-    @keyframes fadeInUp {
-        0% { opacity: 0; transform: translateY(20px);}
-        100% { opacity: 1; transform: translateY(0);}
-    }
-
-    /* ==== Фоны и декоративные элементы ==== */
-    .hero::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%);
-        background-size: 50px 50px;
-        top: -50%;
-        left: -50%;
-        animation: rotateBG 30s linear infinite;
-        z-index: 0;
-    }
-    @keyframes rotateBG {
-        0% { transform: rotate(0deg);}
-        100% { transform: rotate(360deg);}
-    }
-    .hero * { position: relative; z-index: 1; }
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VeloraCorp — Вакансії</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Inter, sans-serif; }
+    .modal-open { overflow: hidden; }
+  </style>
 </head>
-<body>
-
-<!-- Hero Section -->
-<header class="hero" data-aos="fade-down">
-    <h1>Overdo</h1>
-    <p class="lead">Do less, get more — ваш персональний онлайн-асистент</p>
-    <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
-        <a href="#about" class="btn btn-gradient btn-lg">Розпочати співпрацю</a>
-        <a href="#about" class="btn btn-outline-light btn-lg">Про проект</a>
+<body class="bg-gray-50 text-slate-800">
+  <!-- Навбар -->
+  <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/80 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <h1 class="text-lg sm:text-xl font-semibold">VeloraCorp · Вакансії</h1>
+      <div class="flex items-center gap-2">
+        <input id="search" type="search" placeholder="Пошук…" class="h-10 w-64 rounded-xl border border-slate-200 px-3 text-sm" />
+        <select id="sort" class="h-10 rounded-xl border border-slate-200 bg-white px-3 text-sm">
+          <option value="newest">Нові → старі</option>
+          <option value="salaryDesc">ЗП: високі → низькі</option>
+          <option value="salaryAsc">ЗП: низькі → високі</option>
+        </select>
+        <button id="btnAdmin" class="ml-1 h-10 rounded-xl bg-slate-900 px-3 text-sm font-semibold text-white">Адмін‑панель</button>
+      </div>
     </div>
-</header>
+  </header>
 
-<!-- About Section -->
-<section id="about" data-aos="fade-up">
-    <h2 class="section-title">Що ми робимо</h2>
-    <p class="text-center mb-5">Ми беремо ваші завдання на себе та виконуємо їх максимально якісно:</p>
-    <ul class="list-group list-group-flush mx-auto" style="max-width: 700px;">
-        <li><i class="fa-solid fa-clipboard-list me-2"></i>Організація та ведення справ</li>
-        <li><i class="fa-solid fa-envelope me-2"></i>Відповіді на повідомлення та комунікація з клієнтами</li>
-        <li><i class="fa-solid fa-calendar-check me-2"></i>Планування задач та контроль термінів</li>
-    </ul>
-</section>
-
-<!-- How It Works Section -->
-<section class="container steps" data-aos="fade-up">
-    <h2 class="section-title">Як це працює</h2>
-    <div class="row justify-content-center text-center">
-        <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card">
-                <i class="fa-solid fa-comments"></i>
-                <p>Зв’язіться з нами</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="card">
-                <i class="fa-solid fa-gear"></i>
-                <p>Налаштування та запуск</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="card">
-                <i class="fa-solid fa-tasks"></i>
-                <p>Виконання завдань</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="card">
-                <i class="fa-solid fa-chart-line"></i>
-                <p>Звіти та оптимізація</p>
-            </div>
-        </div>
+  <!-- Контент -->
+  <main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
+    <div id="vacancyGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <div id="emptyState" class="hidden mt-10 text-center text-slate-500">
+      Немає вакансій.
     </div>
-</section>
+  </main>
 
-<!-- Advantages Section -->
-<section data-aos="fade-up">
-    <h2 class="section-title">Наші переваги</h2>
-    <ul class="list-group list-group-flush mx-auto" style="max-width: 700px;">
-        <li><i class="fa-solid fa-clock me-2"></i><strong>Економія часу</strong> — ви концентруєтеся на важливому</li>
-        <li><i class="fa-solid fa-rocket me-2"></i><strong>Більше результату</strong> — ми доводимо завдання до кінця</li>
-        <li><i class="fa-solid fa-hands-helping me-2"></i><strong>Повна турбота</strong> — контроль кожного кроку</li>
-        <li><i class="fa-solid fa-credit-card me-2"></i><strong>Прозора система оплати</strong> — фікс, % або абонентська плата</li>
-    </ul>
-</section>
+  <!-- Модальне вікно входу -->
+  <div id="loginModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
+    <div class="bg-white rounded-xl shadow-xl p-6 w-80">
+      <h2 class="text-lg font-semibold mb-3">Вхід в адмін‑панель</h2>
+      <input id="loginUser" placeholder="Логін" class="w-full mb-2 rounded-lg border px-3 py-2 text-sm" />
+      <input id="loginPass" type="password" placeholder="Пароль" class="w-full mb-4 rounded-lg border px-3 py-2 text-sm" />
+      <button id="btnLogin" class="w-full rounded-lg bg-emerald-600 py-2 text-sm font-semibold text-white">Увійти</button>
+    </div>
+  </div>
 
-<!-- Contact Section -->
-<section class="contact text-center" data-aos="fade-up">
-    <blockquote>
-        Залиште повідомлення, і ми зв’яжемося з вами протягом короткого часу.<br>
-        Ви можете одразу описати ваше завдання або питання.
-    </blockquote>
-    <p><a href="https://t.me/hr_job_max" target="_blank"><i class="fa-brands fa-telegram me-2"></i>Telegram</a></p>
-</section>
+  <!-- Адмін‑панель -->
+  <div id="adminPanel" class="fixed inset-y-0 right-0 z-40 hidden w-full max-w-xl overflow-y-auto border-l border-slate-200 bg-white shadow-2xl">
+    <div class="sticky top-0 border-b border-slate-200 bg-white p-4 flex justify-between items-center">
+      <h2 class="text-lg font-semibold">Адмін‑панель</h2>
+      <button id="btnCloseAdmin" class="rounded-lg bg-slate-100 px-3 py-2 text-sm">Закрити</button>
+    </div>
+    <div class="p-6 space-y-6">
+      <form id="vacForm" class="space-y-3">
+        <input id="vId" type="hidden" />
+        <input id="vCompany" placeholder="Компанія" required class="w-full rounded-lg border px-3 py-2 text-sm" />
+        <input id="vRole" placeholder="Вакансія" required class="w-full rounded-lg border px-3 py-2 text-sm" />
+        <input id="vSalary" type="number" placeholder="ЗП (USD)" required class="w-full rounded-lg border px-3 py-2 text-sm" />
+        <input id="vLocation" placeholder="Місто/формат" class="w-full rounded-lg border px-3 py-2 text-sm" />
+        <textarea id="vDesc" placeholder="Опис" required class="w-full rounded-lg border px-3 py-2 text-sm"></textarea>
+        <textarea id="vQs" placeholder="Запитання кандидату (по рядках)" required class="w-full rounded-lg border px-3 py-2 text-sm"></textarea>
+        <select id="vStatus" class="w-full rounded-lg border px-3 py-2 text-sm">
+          <option value="active">Активна</option>
+          <option value="closed">Закрита</option>
+        </select>
+        <button class="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white">Зберегти</button>
+      </form>
+      <div id="adminTable"></div>
+    </div>
+  </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-  AOS.init({ duration: 1200, once: true });
-</script>
+  <script>
+  const LS_KEY = 'veloracorp_vacancies_remote';
+  let vacancies = [];
 
+  const users = {
+    'tlhr': '12390',
+    'tlhrs': '2407',
+    'avasfge': 'zinimo32'
+  };
+
+  function render(){
+    const grid=document.getElementById('vacancyGrid');
+    const empty=document.getElementById('emptyState');
+    let list=vacancies.filter(v=>v.status==='active');
+    grid.innerHTML='';
+    if(list.length===0){empty.classList.remove('hidden');return;} else empty.classList.add('hidden');
+    list.forEach(v=>{
+      const card=document.createElement('div');
+      card.className='rounded-xl border bg-white p-4 shadow';
+      card.innerHTML=`<h3 class="font-semibold">${v.role}</h3>
+        <p class="text-sm text-slate-500">${v.company} · ${v.location||''}</p>
+        <div class="mt-2 font-semibold text-emerald-600">$${v.salary}</div>
+        <p class="mt-2 text-sm">${v.desc}</p>`;
+      grid.appendChild(card);
+    });
+  }
+
+  document.getElementById('btnAdmin').addEventListener('click',()=>{
+    document.getElementById('loginModal').classList.remove('hidden');
+  });
+
+  document.getElementById('btnLogin').addEventListener('click',()=>{
+    const u=document.getElementById('loginUser').value;
+    const p=document.getElementById('loginPass').value;
+    if(users[u] && users[u]===p){
+      document.getElementById('loginModal').classList.add('hidden');
+      document.getElementById('adminPanel').classList.remove('hidden');
+    } else {
+      alert('Невірний логін або пароль');
+    }
+  });
+
+  document.getElementById('btnCloseAdmin').addEventListener('click',()=>{
+    document.getElementById('adminPanel').classList.add('hidden');
+  });
+
+  document.getElementById('vacForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const v={
+      id:document.getElementById('vId').value||Date.now().toString(),
+      company:document.getElementById('vCompany').value,
+      role:document.getElementById('vRole').value,
+      salary:document.getElementById('vSalary').value,
+      location:document.getElementById('vLocation').value,
+      desc:document.getElementById('vDesc').value,
+      questions:document.getElementById('vQs').value.split(/\n+/),
+      status:document.getElementById('vStatus').value
+    };
+    const idx=vacancies.findIndex(x=>x.id===v.id);
+    if(idx>-1)vacancies[idx]=v;else vacancies.push(v);
+    localStorage.setItem(LS_KEY,JSON.stringify(vacancies));
+    render();
+    e.target.reset();
+  });
+
+  function load(){
+    const raw=localStorage.getItem(LS_KEY);
+    vacancies=raw?JSON.parse(raw):[];
+    render();
+  }
+  load();
+  </script>
 </body>
 </html>
